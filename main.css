@@ -1,125 +1,47 @@
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background: url('images/476440824_1134764624774354_8858001376767445137_n.jpg') no-repeat center center fixed;;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    margin: 0;
-    padding-top: 100px;
-}
+  }
+  
 
-.login-container {
-    background: white;
+  .login-container {
+    background-color: #fff;
     padding: 20px;
+    width: 400px;  
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 50px auto;  
     text-align: center;
-    width: 300px;
-}
-
-.login-form input {
+  }
+  .display-image {
+    width: 100%;            
+    height: auto;
+    margin-bottom: 10px;     
+    border-radius: 4px;   
+  }
+  
+  .display-video {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  
 
-.login-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #87CEEB;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.login-btn:hover {
-    background-color: #72B5D5;
-}
-
-.forgot-password {
-    display: block;
-    margin: 10px 0;
-    color: #87CEEB;
-    text-decoration: none;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
-}
-
-hr {
-    margin: 15px 0;
-    border: none;
-    border-top: 1px solid #ddd;
-}
-
-.create-account {
+  .create-account {
     background-color: #FF69B4;
-    color: white;
-    padding: 10px;
+    color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    padding: 10px 20px;
     cursor: pointer;
-    width: 100%;
-}
-
-.create-account:hover {
+    font-size: 16px;
+  }
+  
+  .create-account:hover {
     background-color: #D85A9E;
-}
-.register-container {
-    display: none;
-    width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.register-container h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.register-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.register-form button {
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.register-form button:hover {
-    background: #0056b3;
-}
-
-.back-to-login {
-    background: #6c757d;
-    margin-top: 10px;
-}
-
-.back-to-login:hover {
-    background: #5a6268;
-}
+  }
+  
