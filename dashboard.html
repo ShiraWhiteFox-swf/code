@@ -6,7 +6,8 @@
     body {
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background: url('images/kaka.jpg') no-repeat center center fixed;;
+      background-size: cover;
       font-family: Arial, sans-serif;
     }
     h1 {
@@ -28,7 +29,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      margin: 20px;
+      margin: 200px;
     }
     .block {
       display: grid;
@@ -51,6 +52,9 @@
       justify-content: center;
       font-weight: bold;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     .square:hover {
       background: #bbb;
@@ -90,10 +94,25 @@
       margin: 0;
       line-height: 1.4;
     }
+    .popup-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 10px;
+}
   </style>
 </head>
 <body>
-  <h1>Danh Sách Lớp 12A3 khoá K42</h1>
+  <div class="modal" id="infoModal">
+    <div class="modal-content">
+      <span class="close-button" id="closeBtn">&times;</span>
+      <img id="personImage" class="popup-avatar" src="" alt="">
+      <h2 id="personName"></h2>
+      <p id="personInfo"></p>
+    </div>
+  </div>    
   <div class="rectangle"></div>
 
   <div class="modal" id="infoModal">
@@ -106,12 +125,12 @@
 
   <div class="container">
     <div class="block">
-      <div class="square" data-name="Võ Thị Hoài Phương" data-info="Sinh năm 2007, lùn nhất tổ.">Nguyễn Thị Hoài Phương</div>
-      <div class="square" data-name="Hoàng Thị Như Quỳnh" data-info="Sinh năm 2007, lùn sau Phương.">Hoàng Thị Như Quỳnh</div>
-      <div class="square" data-name="Trần Văn Đức" data-info="Sinh năm 2007, Người được tổ trưởng tôn trọng.">Trần Văn Đức</div>
-      <div class="square" data-name="Bùi Bảo Bảo" data-info="Sinh năm 2007, phong thái của lãnh đạo, tự tin trong mỗi lời nói.">Bùi Bảo Bảo</div>
-      <div class="square" data-name="Ngô Hoàng Ngân" data-info="Sinh năm 062007, giào viên văn tương lai, nhà ngôn ngữ học không có đối thủ.">Ngô Hoàng Ngân</div>
-      <div class="square" data-name="Trần Thị Minh Ánh" data-info="Sinh năm 2007, phú bà của tổ, cái gì cũng chi.">Trần Thị Minh Ánh</div>
+      <div class="square" data-name="Võ Thị Hoài Phương" data-info="Sinh năm 17/06/2007, là một người hiền lành, hay hỗ trợ tổ cũng như luôn nhớ những việc cần thiết để nhắc nhở tổ.">Nguyễn Thị Hoài Phương</div>
+      <div class="square" data-name="Hoàng Thị Như Quỳnh" data-info="Sinh năm 25/12/2007, Một người không mấy siêng năng, luôn có sai sót trong khi làm việc, nhưng bạn cũng rất tự tin trong việc nêu ra ý tưởng với cả nhóm.">Hoàng Thị Như Quỳnh</div>
+      <div class="square" data-name="Trần Văn Đức" data-info="Sinh năm 30/10/2007, Người tổ trưởng thứ 2 của tổ, luôn sẵn sàng hỗ trợ tổ trưởng, cùng với những ý tưởng độc đáo trong các bài thuyết trình, bạn luôn khiến cả lớp trầm trồ vì những file thuyết trình.">Trần Văn Đức</div>
+      <div class="square" data-name="Bùi Bảo Bảo" data-info="Sinh năm 01/10/2007, một người có tính cách khá là ngang ngược, nhưng lại mang phong thái của 1 người lãnh đạo, những lời nói của bạn luôn rất tự nhiên và chứa đựng được sự tự tin trong đó.">Bùi Bảo Bảo</div>
+      <div class="square" data-name="Ngô Hoàng Ngân" data-info="Sinh năm 07/06/2007, là người chỉnh chu nhất nhóm, những bài thuyết trình bạn luôn kiểm tra thật kĩ và sửa các lỗi sai kể cả những chi tiết nhỏ nhặt, nhờ có bạn, các bài thuyết trình của tổ đều rất thành công." data-img="images/ngân.jpg">Ngô Hoàng Ngân</div>
+      <div class="square" data-name="Trần Thị Minh Ánh" data-info="Sinh năm 7/4/2007, .">Trần Thị Minh Ánh</div>
       <div class="square" data-name="Lê Bảo Anh Thư" data-info="Sinh năm 2007, người lặng lẽ nhất tổ.">Nguyễn Bảo Anh Thư</div>
       <div class="square" data-name="Nguyễn Thị Thanh Thuỳ" data-info="Sinh năm 2007, dancer hoạt bát nhất của tổ.">Nguyễn Thanh Thuỳ</div>
       <div class="square" data-name="Nguyễn Đặng Bảo Ngọc" data-info="Sinh năm 31/012007, nhà thiết kế tương lai, người truyền lệnh của tổ trưởng cho các tổ viên.">Nguyễn Đặng Bảo Ngọc</div>
