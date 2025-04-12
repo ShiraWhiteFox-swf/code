@@ -88,7 +88,7 @@
       font-size: 20px;
       font-weight: bold;
     }
-    /* Thêm contenteditable vào phần thông tin để người dùng chỉnh sửa trực tiếp */
+    /* Cho phép người dùng chỉnh sửa thông tin trực tiếp */
     #personInfo {
       margin: 0;
       line-height: 1.4;
@@ -124,7 +124,7 @@
       <span class="close-button" id="closeBtn">&times;</span>
       <img id="personImage" class="popup-avatar" src="" alt="">
       <h2 id="personName"></h2>
-      <!-- Thêm contenteditable để chỉnh sửa thông tin trực tiếp -->
+      <!-- Cho phép chỉnh sửa trực tiếp thông tin -->
       <p id="personInfo" contenteditable="true"></p>
     </div>
   </div>
@@ -135,7 +135,7 @@
     <div class="block">
       <div class="square" data-name="Võ Thị Hoài Phương" data-info="Sinh năm 17/06/2007, là một người hiền lành, hay hỗ trợ tổ cũng như luôn nhớ những việc cần thiết để nhắc nhở tổ." data-img="images/phuong.jpg">Võ Thị Hoài Phương</div>
       <div class="square" data-name="Hoàng Thị Như Quỳnh" data-info="Sinh năm 25/12/2007, Một người không mấy siêng năng, luôn có sai sót trong khi làm việc, nhưng bạn cũng rất tự tin trong việc nêu ra ý tưởng với cả nhóm.">Hoàng Thị Như Quỳnh</div>
-      <div class="square" data-name="Trần Văn Đức" data-info="Sinh năm 30/10/2007, Người tổ trưởng thứ 2 của tổ, luôn sẵn sàng hỗ trợ tổ trưởng, cùng với những ý tưởng độc đáo trong các bài thuyết trình, bạn luôn khiến cả lớp trầm trồ vì những file thuyết trình.">Trần Văn Đức</div>
+      <div class="square" data-name="Trần Văn Đức" data-info="Sinh năm 30/10/2007, Người tổ trưởng thứ 2 của tổ, luôn sẵn sàng hỗ trợ tổ trưởng, cùng với những ý tưởng độc đáo trong các bài thuyết trình, bạn luôn khiến cả lớp trầm trồ vì những file thuyết trình." >Trần Văn Đức</div>
       <div class="square" data-name="Bùi Bảo Bảo" data-info="Sinh năm 01/10/2007, một người có tính cách khá là ngang ngược, nhưng lại mang phong thái của 1 người lãnh đạo, những lời nói của bạn luôn rất tự nhiên và chứa đựng được sự tự tin trong đó.">Bùi Bảo Bảo</div>
       <div class="square" data-name="Ngô Hoàng Ngân" data-info="Sinh năm 07/06/2007, là người chỉnh chu nhất nhóm, những bài thuyết trình bạn luôn kiểm tra thật kĩ và sửa các lỗi sai kể cả những chi tiết nhỏ nhặt, nhờ có bạn, các bài thuyết trình của tổ đều rất thành công." data-img="images/ngân.jpg">Ngô Hoàng Ngân</div>
       <div class="square" data-name="Trần Thị Minh Ánh" data-info="Sinh năm 7/4/2007, một người khá thoải mái, tuy nhiên lại rất ngại lên bảng trình bày, lúc nào cũng làm việc gần như chỉnh chu, tuy không tham gia quá nhiều vào việc nhóm, nhưng vẫn luôn hoàn thành công việc được giao." data-img="images/minhanh.jpg">Trần Thị Minh Ánh</div>
@@ -202,6 +202,15 @@
       const personImage = document.getElementById('personImage');
       let currentSquare = null;
 
+      // Khôi phục dữ liệu từ localStorage cho mỗi square
+      squares.forEach((sq) => {
+        const key = sq.getAttribute('data-name');
+        const savedInfo = localStorage.getItem(key);
+        if (savedInfo) {
+          sq.setAttribute('data-info', savedInfo);
+        }
+      });
+
       squares.forEach((sq) => {
         sq.addEventListener('click', function() {
           currentSquare = sq;
@@ -226,23 +235,31 @@
         });
       });
 
-      closeBtn.addEventListener('click', function () {
-        // Khi đóng modal, cập nhật data-info của square hiện tại
+      function saveInfo() {
         if (currentSquare) {
-          currentSquare.setAttribute('data-info', personInfo.innerText.trim());
+          const updatedInfo = personInfo.innerText.trim();
+          currentSquare.setAttribute('data-info', updatedInfo);
+          // Lưu vào localStorage với khóa là data-name của square
+          localStorage.setItem(currentSquare.getAttribute('data-name'), updatedInfo);
         }
+      }
+
+      closeBtn.addEventListener('click', function () {
+        saveInfo();
         infoModal.style.display = 'none';
       });
 
       window.addEventListener('click', function (e) {
         if (e.target === infoModal) {
-          if (currentSquare) {
-            currentSquare.setAttribute('data-info', personInfo.innerText.trim());
-          }
+          saveInfo();
           infoModal.style.display = 'none';
         }
       });
     });
+    setInterval(()=>{const a=document.createElement('div');a.className='heart';a.innerText='💖';a.style.left=Math.random()*100+'vw';a.style.fontSize=(Math.random()*15+10)+'px';document.body.appendChild(a);setTimeout(()=>{a.remove()},5e3)},300);
+    .💗{position:fixed;top:-2em;z-index:9999;animation:💦 5s linear forwards,🌀 5s ease-in-out;pointer-events:none;user-select:none;opacity:.8;transform:rotate(0deg)}
+@keyframes 💦{to{top:110vh;opacity:0}}
+@keyframes 🌀{0%{transform:rotate(0deg)scale(1)}50%{transform:rotate(180deg)scale(1.2)}100%{transform:rotate(360deg)scale(1)}}
   </script>
 </body>
 </html>
