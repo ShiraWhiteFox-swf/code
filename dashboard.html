@@ -6,7 +6,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: url('images/kaka.jpg') no-repeat center center fixed;;
+      background: url('images/kaka.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: Arial, sans-serif;
     }
@@ -52,15 +52,12 @@
       justify-content: center;
       font-weight: bold;
       cursor: pointer;
-      display: flex;
-      align-items: center;
       gap: 10px;
       overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài */
     }
     .square:hover {
       background: #bbb;
     }
-
     .modal {
       display: none;
       position: fixed;
@@ -91,53 +88,49 @@
       font-size: 20px;
       font-weight: bold;
     }
+    /* Thêm contenteditable vào phần thông tin để người dùng chỉnh sửa trực tiếp */
     #personInfo {
       margin: 0;
       line-height: 1.4;
+      outline: none; /* Loại bỏ viền khi chỉnh sửa */
     }
     .popup-avatar {
-  width: 270;
-  height: 270px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto 10px;
-}
-.avatar {
-  width: 80px; /* Điều chỉnh kích thước theo ý muốn */
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: auto; /* Canh giữa trong ô */
-}
-.square img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Cắt ảnh để vừa khít ô mà không méo */
-}
-
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .avatar {
+      width: 80px; /* Điều chỉnh kích thước theo ý muốn */
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: auto; /* Canh giữa trong ô */
+    }
+    .square img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cắt ảnh để vừa khít ô mà không méo */
+    }
   </style>
 </head>
 <body>
+  <!-- Chỉ còn 1 modal duy nhất -->
   <div class="modal" id="infoModal">
     <div class="modal-content">
       <span class="close-button" id="closeBtn">&times;</span>
       <img id="personImage" class="popup-avatar" src="" alt="">
       <h2 id="personName"></h2>
-      <p id="personInfo"></p>
-    </div>
-  </div>    
-  <div class="rectangle"></div>
-
-  <div class="modal" id="infoModal">
-    <div class="modal-content">
-      <span class="close-button" id="closeBtn">&times;</span>
-      <h2 id="personName"></h2>
-      <p id="personInfo"></p>
+      <!-- Thêm contenteditable để chỉnh sửa thông tin trực tiếp -->
+      <p id="personInfo" contenteditable="true"></p>
     </div>
   </div>
-
+  
+  <div class="rectangle"></div>
+  
   <div class="container">
     <div class="block">
       <div class="square" data-name="Võ Thị Hoài Phương" data-info="Sinh năm 17/06/2007, là một người hiền lành, hay hỗ trợ tổ cũng như luôn nhớ những việc cần thiết để nhắc nhở tổ." data-img="images/phuong.jpg">Võ Thị Hoài Phương</div>
@@ -145,15 +138,16 @@
       <div class="square" data-name="Trần Văn Đức" data-info="Sinh năm 30/10/2007, Người tổ trưởng thứ 2 của tổ, luôn sẵn sàng hỗ trợ tổ trưởng, cùng với những ý tưởng độc đáo trong các bài thuyết trình, bạn luôn khiến cả lớp trầm trồ vì những file thuyết trình.">Trần Văn Đức</div>
       <div class="square" data-name="Bùi Bảo Bảo" data-info="Sinh năm 01/10/2007, một người có tính cách khá là ngang ngược, nhưng lại mang phong thái của 1 người lãnh đạo, những lời nói của bạn luôn rất tự nhiên và chứa đựng được sự tự tin trong đó.">Bùi Bảo Bảo</div>
       <div class="square" data-name="Ngô Hoàng Ngân" data-info="Sinh năm 07/06/2007, là người chỉnh chu nhất nhóm, những bài thuyết trình bạn luôn kiểm tra thật kĩ và sửa các lỗi sai kể cả những chi tiết nhỏ nhặt, nhờ có bạn, các bài thuyết trình của tổ đều rất thành công." data-img="images/ngân.jpg">Ngô Hoàng Ngân</div>
-      <div class="square" data-name="Trần Thị Minh Ánh" data-info="Sinh năm 7/4/2007, một người khá thoải mái, tuy nhiên lại rất ngại lên bàng trình bày,lúc nào cũng làm việc gần như chỉnh chu, tuy không tham gia quá nhiều vào việc nhóm, nhưng vẫn luôn hoàn thành công việc được giao." data-img="images/minhanh.jpg">Trần Thị Minh Ánh</div>
+      <div class="square" data-name="Trần Thị Minh Ánh" data-info="Sinh năm 7/4/2007, một người khá thoải mái, tuy nhiên lại rất ngại lên bảng trình bày, lúc nào cũng làm việc gần như chỉnh chu, tuy không tham gia quá nhiều vào việc nhóm, nhưng vẫn luôn hoàn thành công việc được giao." data-img="images/minhanh.jpg">Trần Thị Minh Ánh</div>
       <div class="square" data-name="Lê Bảo Anh Thư" data-info="Sinh năm 2007, người lặng lẽ nhất tổ, hiếm khi nói chuyện, nhưng với tư cách là tổ phó của tổ, bạn làm việc cũng có tính kĩ luận và trách nhiệm." data-img="images/baothu.jpg">Nguyễn Bảo Anh Thư</div>
-      <div class="square" data-name="Nguyễn Thị Thanh Thuỳ" data-info="Sinh năm 2007, dancer hoạt bát nhất của tổ, cũng rất hay đưa ra ý kiến cho các bài làm tập nhóm, những ý kiến độc đáo của bạn cũng góp phân cho các bài thuyết trình rất nhièu ."><img src="images/avtthuy.jpg" class="avatar" alt="Nguyễn Thị Thanh Thuỳ"></div>
-      <div class="square" data-name="Nguyễn Đặng Bảo Ngọc" data-info="Sinh năm 31/012007, có thể coi là người truyền lệnh của tổ trưởng, hầu hết các lệnh của tổ trưởng muốn được truyền lên trên đều sẽ được thông qua bạn, cũng như về các mặt mỹ thuật đều có sự kiểm soát của bạn." data-img="images/ngoc.jpg"><img src="images/avtngoc.jpg" class="avatar" alt="Nguyễn Đặng Bảo Ngọc"></div>
+      <div class="square" data-name="Nguyễn Thị Thanh Thuỳ" data-info="Sinh năm 2007, dancer hoạt bát nhất của tổ, cũng rất hay đưa ra ý kiến cho các bài làm tập nhóm, những ý kiến độc đáo của bạn cũng góp phần cho các bài thuyết trình rất nhiều."><img src="images/avtthuy.jpg" class="avatar" alt="Nguyễn Thị Thanh Thuỳ"></div>
+      <div class="square" data-name="Nguyễn Đặng Bảo Ngọc" data-info="Sinh năm 31/012007, có thể coi là người truyền lệnh của tổ trưởng, hầu hết các lệnh của tổ trưởng muốn được truyền lên đều sẽ được thông qua bạn, cũng như về các mặt mỹ thuật đều có sự kiểm soát của bạn." data-img="images/ngoc.jpg"><img src="images/avtngoc.jpg" class="avatar" alt="Nguyễn Đặng Bảo Ngọc"></div>
       <div class="square" data-name="Nguyễn Trần Hồng Nhung" data-info="Sinh năm 2007, học thì ích mà săn sale thì nhiều, tuy bạn giao tiếp với các bạn khác một cách bình thường, nhưng lại rất ngại đi lên bảng trình bày.">Nguyễn Trần Hồng Nhung Nhung</div>
       <div class="square" data-name="Phan Ngọc Đăng Khoa" data-info="Sinh năm 27/02/2007, là người gánh cả tổ trong mọi hoạt động làm bài nhóm, luôn đảm nhận những việc nặng nhất, là the goat của cả lớp">Phan Ngọc Đăng Khoa</div>
       <div class="square" data-name="Trống">Trống</div>
     </div>
 
+    <!-- Các block khác giữ nguyên -->
     <div class="block">
       <div class="square" data-name="Bùi Đức Hoàng Duy" data-info="Sinh năm 12/12/2007">Bùi Đức Hoàng Duy</div>
       <div class="square" data-name="Đinh Nữ Quỳnh Mai" data-info="Sinh năm 14/042007">Đinh Nữ Quỳnh Mai</div>
@@ -199,78 +193,56 @@
   </div>
 
   <script>
-    const squares = document.querySelectorAll('.square');
-    const infoModal = document.getElementById('infoModal');
-    const closeBtn = document.getElementById('closeBtn');
-    const personName = document.getElementById('personName');
-    const personInfo = document.getElementById('personInfo');
-    function openModal(name, info) {
-      personName.textContent = name;
-      personInfo.textContent = info;
-      infoModal.style.display = 'flex';
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const squares = document.querySelectorAll('.square');
+      const infoModal = document.getElementById('infoModal');
+      const closeBtn = document.getElementById('closeBtn');
+      const personName = document.getElementById('personName');
+      const personInfo = document.getElementById('personInfo');
+      const personImage = document.getElementById('personImage');
+      let currentSquare = null;
 
-    function closeModal() {
-      infoModal.style.display = 'none';
-    }
+      squares.forEach((sq) => {
+        sq.addEventListener('click', function() {
+          currentSquare = sq;
+          const name = sq.getAttribute('data-name');
+          const info = sq.getAttribute('data-info');
+          const imgSrc = sq.getAttribute('data-img');
 
-    squares.forEach((sq) => {
-      sq.addEventListener('click', function() {
-        const name = sq.getAttribute('data-name');
-        const info = sq.getAttribute('data-info');
-        if (name && info) {
-          openModal(name, info);
+          if (name && info) {
+            personName.textContent = name;
+            personInfo.textContent = info;
+            // Đảm bảo phần thông tin có thể chỉnh sửa trực tiếp
+            personInfo.setAttribute('contenteditable', 'true');
+
+            if (imgSrc) {
+              personImage.src = imgSrc;
+              personImage.style.display = "block";
+            } else {
+              personImage.style.display = "none";
+            }
+            infoModal.style.display = 'flex';
+          }
+        });
+      });
+
+      closeBtn.addEventListener('click', function () {
+        // Khi đóng modal, cập nhật data-info của square hiện tại
+        if (currentSquare) {
+          currentSquare.setAttribute('data-info', personInfo.innerText.trim());
+        }
+        infoModal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function (e) {
+        if (e.target === infoModal) {
+          if (currentSquare) {
+            currentSquare.setAttribute('data-info', personInfo.innerText.trim());
+          }
+          infoModal.style.display = 'none';
         }
       });
     });
-
-    closeBtn.addEventListener('click', closeModal);
-
-    window.addEventListener('click', function(e) {
-      if (e.target === infoModal) {
-        closeModal();
-      }
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-    const squares = document.querySelectorAll(".square");
-    const infoModal = document.getElementById("infoModal");
-    const closeBtn = document.getElementById("closeBtn");
-    const personName = document.getElementById("personName");
-    const personInfo = document.getElementById("personInfo");
-    const personImage = document.getElementById("personImage");
-
-    squares.forEach((sq) => {
-        sq.addEventListener("click", function () {
-            const name = sq.getAttribute("data-name");
-            const info = sq.getAttribute("data-info");
-            const imgSrc = sq.getAttribute("data-img");
-
-            if (name && info) {
-                personName.textContent = name;
-                personInfo.textContent = info;
-                if (imgSrc) {
-                    personImage.src = imgSrc;
-                    personImage.style.display = "block";
-                } else {
-                    personImage.style.display = "none";
-                }
-
-                infoModal.style.display = "flex";
-            }
-        });
-    });
-
-    closeBtn.addEventListener("click", function () {
-        infoModal.style.display = "none";
-    });
-
-    window.addEventListener("click", function (e) {
-        if (e.target === infoModal) {
-            infoModal.style.display = "none";
-        }
-    });
-});
-
   </script>
 </body>
 </html>
